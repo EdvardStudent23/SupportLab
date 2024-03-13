@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User`s Fundraisings</title>
+    <link rel="stylesheet" href="..//static//userfund_style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+</head>
+<body class="yellow-bg">
+    <header class="header">
+        <h1>User`s Fundraisings</h1>
+    </header>
+    <div class="fundraising-container">
+        <div class="fundraising">
+            <div class="header">Fundraising 1</div>
+            <div class="description">Description of Fundraising 1</div>
+            <div class="donate-section">
+              <p>Credit Card: XXXX XXXX XXXX XXXX</p> 
+                <button class="donate-btn">Donate</button>
+            </div>
+        </div>
+    
+        <div class="fundraising">
+            <div class="header">Fundraising 2</div>
+            <div class="description">Description of Fundraising 2</div>
+            <div class="donate-section">
+              <p>Credit Card: XXXX XXXX XXXX XXXX</p> 
+                <button class="donate-btn">Donate</button>
+            </div>
+        </div>
+    
+        <div class="fundraising">
+            <div class="header">Fundraising 3</div>
+            <div class="description">Description of Fundraising 3</div>
+            <div class="donate-section">
+              <p>Credit Card: XXXX XXXX XXXX XXXX</p> 
+                <button class="donate-btn">Donate</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to create a new fundraising item
+        function createFundraising() {
+            // Create a new fundraising div
+            var newFundraising = document.createElement("div");
+            newFundraising.className = "fundraising";
+
+            // Populate the new fundraising div with content
+            newFundraising.innerHTML = `
+                <div class="header">New Fundraising</div>
+                <div class="description">Description of New Fundraising</div>
+                <div class="donate-section">
+                    <p>Credit Card: XXXX XXXX XXXX 9012</p>
+                    <button class="donate-btn">Donate</button>
+                </div>
+            `;
+
+            // Append the new fundraising item to the fundraising container
+            document.querySelector(".fundraising-container").appendChild(newFundraising);
+        }
+
+        // Add an event listener to the button to create a new fundraising item when clicked
+        document.querySelector("#create-btn").addEventListener("click", createFundraising);
+    </script>
+
+    <!-- Button to create a new fundraising item -->
+    <button onclick="goToPage()" id="create-btn">Create your own</button>
+    <script>
+        function goToPage() {
+        // Змініть URL на URL вашої сторінки
+        window.location.href = "createfund.html";
+    }
+    </script>
+</body>
+</html>
