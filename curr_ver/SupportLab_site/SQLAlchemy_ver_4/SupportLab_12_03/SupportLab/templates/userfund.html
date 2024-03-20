@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User's Fundraisings</title>
+    <link rel="stylesheet" href="../static/userfund_style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+</head>
+<body class="yellow-bg">
+<header class="header">
+    <h1>User's Fundraisings</h1>
+</header>
+<div class="fundraising-container">
+    {% for fundraising in fundraisings.items %}
+    <div class="fundraising">
+        <div class="header">{{ fundraising.name }}</div>
+        <div class="description">{{ fundraising.description }}</div>
+        <div class="donate-section">
+            <p>Credit Card: {{ fundraising.credit_number }}</p>
+        </div>
+        <a href="https://www.ipay.ua/ua/p2p?gad_source=1&gclid=CjwKCAjwkuqvBhAQEiwA65XxQBcWDJ2sdUwY0WCHoVfVOJDBHVx2esYFvU8yyLrJpSBkzElq7Jf-7RoC840QAvD_BwE" target="_blank">
+            <button class="donate-btn">Donate</button>
+        </a>
+        <!-- <button class="donate-btn">Donate</button> -->
+    </div>
+    {% endfor %}
+</div>
+
+{% if fundraisings.has_prev %}
+    <a href="{{ url_for('userfund', page=fundraisings.prev_num) }}"class="pagination-btn">Previous</a>
+{% endif %}
+
+{% if fundraisings.has_next %}
+    <a href="{{ url_for('userfund', page=fundraisings.next_num) }}"class="pagination-btn">Next</a>
+{% endif %}
+
+<button onclick="goToPage()" id="create-btn">Create your own</button>
+<button onclick="goToPage1()" class="btn">Go Back</button>
+
+<script>
+    function goToPage() {
+        window.location.href = "createfund.html";
+    }
+    function goToPage1() {
+        window.location.href = "mainpage.html";
+    }
+</script>
+</body>
+</html>
